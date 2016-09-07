@@ -7,6 +7,7 @@ namespace FomeLine.Views.Menu
         public AddPedidoMenuView()
         {
             InitializeComponent();
+            //BindingContext = new PedidoVm();
         }
     }
 }

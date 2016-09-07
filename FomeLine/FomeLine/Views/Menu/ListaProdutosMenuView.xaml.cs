@@ -1,4 +1,5 @@
-﻿using Xamarin.Forms;
+﻿using FomeLine.ViewModels;
+using Xamarin.Forms;
 
 namespace FomeLine.Views.Menu
 {
@@ -7,6 +8,7 @@ namespace FomeLine.Views.Menu
         public ListaProdutosMenuView()
         {
             InitializeComponent();
+            BindingContext = new ProdutoVm();
         }
     }
 }

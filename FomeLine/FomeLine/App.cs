@@ -14,7 +14,7 @@ namespace FomeLine
             DependencyService.Register<IMessageService, MessageService>();
             DependencyService.Register<INavigationService, NavigationService>();
 
-            MainPage = new AddProdutoMenuView();
+            MainPage = new MasterMenuView();
         }
 
         protected override void OnStart()
