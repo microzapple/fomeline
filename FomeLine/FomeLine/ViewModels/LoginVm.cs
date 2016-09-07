@@ -40,14 +40,14 @@ namespace FomeLine.ViewModels
         {
             //if (Email == "adm" && Password == "123")
             //{
-            //    await NavigationService.NavigateToMain();
+            await NavigationService.NavigateToMain();
             //}
             //else
             //{
             //    await MessageService.ShowAsync("Email e/ou Senha inválidos...");
             //}
 
-            await MessageService.ShowAsync("Login e/ou Senha inválidos...");
+            //await MessageService.ShowAsync("Login e/ou Senha inválidos...");
         }
 
         private async void Register()

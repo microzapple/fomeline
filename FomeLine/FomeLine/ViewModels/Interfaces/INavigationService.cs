@@ -10,5 +10,7 @@ namespace FomeLine.ViewModels.Interfaces
         Task NavigateToHome();
         Task NavigateToPedidos();
         Task NavigateToAddPedido();
+        Task NavigateToProdutos();
+        Task NavigateToAddProduto();
     }
 }
