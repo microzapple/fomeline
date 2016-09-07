@@ -4,7 +4,7 @@ using Xamarin.Forms;
 
 namespace FomeLine.Repository
 {
-    public class RepositoryBase<TEntity> where TEntity : class, IDisposable
+    public class RepositoryBase<TEntity> where TEntity : class
     {
         protected readonly SQLite.Net.SQLiteConnection Conexao;
 
@@ -16,17 +16,17 @@ namespace FomeLine.Repository
             Conexao.CreateTable<TEntity>();
         }
 
-        public void Insert(TEntity entity)
+        public virtual void Insert(TEntity entity)
         {
             Conexao.Insert(entity);
         }
 
-        public void Delete(TEntity entity)
+        public virtual void Delete(TEntity entity)
         {
             Conexao.Delete(entity);
         }
         
-        public void Update(TEntity entity)
+        public virtual void Update(TEntity entity)
         {
             Conexao.Update(entity);
         }

@@ -1,4 +1,7 @@
-﻿using System.Windows.Input;
+﻿using System;
+using System.Windows.Input;
+using FomeLine.Models;
+using FomeLine.Services;
 using Xamarin.Forms;
 
 namespace FomeLine.ViewModels
@@ -94,20 +97,32 @@ namespace FomeLine.ViewModels
             }
         }
 
-        public RegisterVm()
-        {
-            RegisterCommand = new Command(Register);
-        }
-        private async void Register()
-        {
-
-            await MessageService.ShowAsync("Implementar ainda");
-        }
-
         public ICommand RegisterCommand
         {
             get;
             set;
+        }
+
+        public RegisterVm()
+        {
+            RegisterCommand = new Command(Register);
+        }
+
+        private async void Register()
+        {
+            try
+            {
+                var user = new Usuario();
+                user.SetInformation(_email, _userName, _password, _confirmPassword, _firstName, _lastName);
+
+                var service = new UsuarioService();
+                service.Insert(user);
+                await NavigationService.NavigateToLogin();
+            }
+            catch (Exception error)
+            {
+                await MessageService.ShowAsync(error.Message);
+            }
         }
     }
 }

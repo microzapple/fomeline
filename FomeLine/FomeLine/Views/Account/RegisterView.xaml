@@ -23,7 +23,7 @@
       <Label Text="Confirmação"></Label>
       <Entry Text="{Binding ConfirmPassword}" Placeholder="Ex.: ****" IsPassword="True"></Entry>
 
-      <Button Text="Registrar" Command="{Binding RegistrarCommand}" BackgroundColor="Green" TextColor="White"></Button>
+      <Button Text="Registrar" Command="{Binding RegisterCommand}" BackgroundColor="Green" TextColor="White"></Button>
     </StackLayout>
   </ContentPage.Content>
 </ContentPage>

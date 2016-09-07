@@ -1,24 +1,26 @@
 using System;
+using FomeLine.Helpers;
 using SQLite.Net.Attributes;
 
 namespace FomeLine.Models
 {
     public class Usuario
     {
-        public Usuario(string email, string userName, string password, string confirmPassword, string firstName, string lastName)
+        public Usuario() { }
+        public void SetInformation(string email, string userName, string password, string confirmPassword, string firstName, string lastName)
         {
             Email = email;
             UserName = userName;
             Password = password;
+            ConfirmPassword = confirmPassword;
             FirstName = firstName;
             LastName = lastName;
             Ativo = true;
             DataCadastro = DateTime.Now;
-            ConfirmPassword = confirmPassword;
         }
-
+        
         [PrimaryKey, AutoIncrement]
-        public int UserId { get; set; }
+        public int UsuarioId { get; set; }
 
         [MaxLength(60), Unique]
         public string Email { get; private set; }
@@ -40,7 +42,7 @@ namespace FomeLine.Models
 
         [Ignore]
         public string ConfirmPassword { get; private set; }
-       
+
         public bool IsValid()
         {
             if (string.IsNullOrEmpty(FirstName)) throw new Exception("Nome Obrigatório");
@@ -48,6 +50,9 @@ namespace FomeLine.Models
             if (string.IsNullOrEmpty(Email)) throw new Exception("Email Obrigatório");
             if (string.IsNullOrEmpty(UserName)) throw new Exception("Login Obrigatório");
             if (string.IsNullOrEmpty(Password)) throw new Exception("Senha Obrigatório");
+            if (string.IsNullOrEmpty(ConfirmPassword)) throw new Exception("Confirmação de Senha Obrigatório");
+            if(!ConfirmPassword.Equals(Password)) throw new Exception("Senha e Confirmação não confere!");
+            if(!EmailHelper.IsEmail(Email)) throw  new Exception("Email inválido!");
             return true;
         }
     }

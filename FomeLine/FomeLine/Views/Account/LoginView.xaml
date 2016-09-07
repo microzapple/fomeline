@@ -4,7 +4,7 @@
              x:Class="FomeLine.Views.Account.LoginView">
 
   <ContentPage.Content>
-    <StackLayout Padding="20">
+    <StackLayout Padding="10" Spacing="10">
       <Entry Text="{Binding Email}" Keyboard="Email" Placeholder="email@server.com"></Entry>
       <Entry IsPassword="true" Text="{Binding Password}" Placeholder="password"></Entry>
       <Button Text="Login" Command="{Binding LoginCommand}"></Button>
