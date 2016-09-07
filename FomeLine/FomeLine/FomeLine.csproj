@@ -79,12 +79,6 @@
     <Compile Include="Views\Menu\MasterMenuView.xaml.cs">
       <DependentUpon>MasterMenuView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Menu\MenuCell.cs" />
-    <Compile Include="Views\Menu\MenuItem.cs" />
-    <Compile Include="Views\Menu\MenuListData.cs" />
-    <Compile Include="Views\Menu\MenuListView.cs" />
-    <Compile Include="Views\Menu\MenuPage.cs" />
-    <Compile Include="Views\Menu\RootPage.cs" />
     <Compile Include="Views\Pedidos\AddPedidoView.xaml.cs">
       <DependentUpon>AddPedidoView.xaml</DependentUpon>
     </Compile>
