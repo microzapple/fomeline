@@ -5,16 +5,16 @@ namespace FomeLine.ViewModels
 {
     public class RegisterVm : BaseVm
     {
-        private int _id;
+        private int _usuarioId;
         public int UsuarioId
         {
             get
             {
-                return _id;
+                return _usuarioId;
             }
             set
             {
-                _id = value;
+                _usuarioId = value;
                 Notify(nameof(UsuarioId));
             }
         }
@@ -86,7 +86,7 @@ namespace FomeLine.ViewModels
         private string _confirmPassword;
         public string ConfirmPassword
         {
-            get { return ConfirmPassword; }
+            get { return _confirmPassword; }
             set
             {
                 _confirmPassword = value;
