@@ -2,12 +2,15 @@
 using System.Windows.Input;
 using FomeLine.Models;
 using FomeLine.Services;
+using Plugin.Media;
 using Xamarin.Forms;
 
 namespace FomeLine.ViewModels
 {
     public class ProdutoVm : BaseVm
     {
+        private const string DefaultImage = "camera.png";
+
         private int _produtoId;
         public int ProdutoId
         {
@@ -55,13 +58,32 @@ namespace FomeLine.ViewModels
             }
         }
 
+        private ImageSource _imageSource;
+        public ImageSource ImageSource
+        {
+            get
+            {
+                return _imageSource;
+            }
+            set
+            {
+                _imageSource = value;
+                Notify(nameof(ImageSource));
+            }
+        }
+
         public ICommand ListaPedidosCommand { get; set; }
         public ICommand NovoProdutoCommand { get; set; }
+        public ICommand TirarFotoCommand { get; set; }
+        public ICommand EscolherFotoCommand { get; set; }
         public ICommand GravarCommand { get; set; }
         public ProdutoVm()
         {
+            _imageSource = DefaultImage;
             ListaPedidosCommand = new Command(GoToListarPedidos);
             NovoProdutoCommand = new Command(GoToNovoProduto);
+            EscolherFotoCommand = new Command(EscolherFoto);
+            TirarFotoCommand = new Command(TirarFoto);
             GravarCommand = new Command(Gravar);
         }
 
@@ -82,15 +104,60 @@ namespace FomeLine.ViewModels
                 await MessageService.ShowAsync(error.Message);
             }
         }
-        
+
         public async void GoToListarPedidos()
         {
             await NavigationService.NavigateToPedidos();
         }
-        
+
         public async void GoToNovoProduto()
         {
             await NavigationService.NavigateToAddProduto();
+        }
+
+        public async void EscolherFoto()
+        {
+            if (!CrossMedia.Current.IsPickPhotoSupported)
+            {
+                await MessageService.ShowAsync("Erro", "Sem permissão para acessar suas fotos");
+                return;
+            }
+            var file = await CrossMedia.Current.PickPhotoAsync();
+
+            if (file == null) return;
+
+            _imageSource = ImageSource.FromStream(() =>
+            {
+                var stream = file.GetStream();
+                file.Dispose();
+                return stream;
+            });
+        }
+
+        public async void TirarFoto()
+        {
+            if (!CrossMedia.Current.IsCameraAvailable || !CrossMedia.Current.IsTakePhotoSupported)
+            {
+                await MessageService.ShowAsync("Erro", "Nenhuma câmera disponível");
+                return;
+            }
+
+            var file = await CrossMedia.Current.TakePhotoAsync(new Plugin.Media.Abstractions.StoreCameraMediaOptions
+            {
+                Directory = "Sample",
+                Name = "test.jpg"
+            });
+
+            if (file == null) return;
+
+            await MessageService.ShowAsync("Localização do arquivo", file.Path);
+
+            _imageSource = ImageSource.FromStream(() =>
+            {
+                var stream = file.GetStream();
+                file.Dispose();
+                return stream;
+            });
         }
     }
 }
