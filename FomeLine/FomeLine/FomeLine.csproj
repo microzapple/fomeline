@@ -37,6 +37,7 @@
   <ItemGroup>
     <Compile Include="App.cs" />
     <Compile Include="Helpers\EmailHelper.cs" />
+    <Compile Include="Models\Pedido.cs" />
     <Compile Include="Models\Produto.cs" />
     <Compile Include="Models\Usuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -51,6 +52,7 @@
     <Compile Include="ViewModels\Interfaces\IMessageService.cs" />
     <Compile Include="ViewModels\Interfaces\INavigationService.cs" />
     <Compile Include="ViewModels\LoginVm.cs" />
+    <Compile Include="ViewModels\PedidoVm.cs" />
     <Compile Include="ViewModels\ProdutoVm.cs" />
     <Compile Include="ViewModels\RegisterVm.cs" />
     <Compile Include="Views\Account\LoginView.xaml.cs">

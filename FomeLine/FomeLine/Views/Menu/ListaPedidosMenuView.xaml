@@ -7,9 +7,9 @@
   <MasterDetailPage.Master>
     <ContentPage Title="MENU">
       <StackLayout Orientation="Vertical">
-        <Button Text="Início"></Button>
-        <Button Text="Novo Pedido"></Button>
-        <Button Text="Produtos"></Button>
+        <Button Command="{Binding HomeCommand}" Text="Início"></Button>
+        <Button Command="{Binding NovoPedidoCommand}" Text="Novo Pedido"></Button>
+        <Button Command="{Binding ListaProdutosCommand}" Text="Produtos"></Button>
       </StackLayout>
     </ContentPage>
   </MasterDetailPage.Master>

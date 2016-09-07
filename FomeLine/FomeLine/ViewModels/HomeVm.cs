@@ -5,15 +5,14 @@ namespace FomeLine.ViewModels
 {
     public class HomeVm : BaseVm
     {
-        public ICommand HomeCommand { get; set; }
         public ICommand ListaProdutosCommand { get; set; }
         public ICommand ListaPedidosCommand { get; set; }
 
         public HomeVm()
         {
             HomeCommand = new Command(GoToHome);
-            ListaProdutosCommand = new Command(ListarProdutos);
-            ListaPedidosCommand = new Command(ListarPedidos);
+            ListaProdutosCommand = new Command(GoToListarProdutos);
+            ListaPedidosCommand = new Command(GoToListarPedidos);
         }
         
         private async void GoToHome()
@@ -21,12 +20,12 @@ namespace FomeLine.ViewModels
             await NavigationService.NavigateToHome();
         }
 
-        private async void ListarPedidos()
+        private async void GoToListarPedidos()
         {
             await NavigationService.NavigateToPedidos();
         }
 
-        private async void ListarProdutos()
+        private async void GoToListarProdutos()
         {
             await NavigationService.NavigateToProdutos();
         }

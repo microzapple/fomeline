@@ -1,4 +1,5 @@
-﻿using Xamarin.Forms;
+﻿using FomeLine.ViewModels;
+using Xamarin.Forms;
 
 namespace FomeLine.Views.Menu
 {
@@ -7,7 +8,7 @@ namespace FomeLine.Views.Menu
         public AddPedidoMenuView()
         {
             InitializeComponent();
-            //BindingContext = new PedidoVm();
+            BindingContext = new PedidoVm();
         }
     }
 }

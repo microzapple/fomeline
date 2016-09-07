@@ -7,7 +7,7 @@
   <MasterDetailPage.Master>
     <ContentPage Title="MENU">
       <StackLayout Orientation="Vertical">
-        <Button Text="Início"></Button>
+        <Button Command ="{Binding HomeCommand}" Text="Início"></Button>
         <Button Text="Pedidos"></Button>
         <Button Text="Produtos"></Button>
       </StackLayout>

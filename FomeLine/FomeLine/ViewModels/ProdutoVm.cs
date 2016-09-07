@@ -55,9 +55,13 @@ namespace FomeLine.ViewModels
             }
         }
 
+        public ICommand ListaPedidosCommand { get; set; }
+        public ICommand NovoProdutoCommand { get; set; }
         public ICommand GravarCommand { get; set; }
         public ProdutoVm()
         {
+            ListaPedidosCommand = new Command(ListarPedidos);
+            NovoProdutoCommand = new Command(AdicionarProduto);
             GravarCommand = new Command(Gravar);
         }
 
@@ -77,6 +81,16 @@ namespace FomeLine.ViewModels
             {
                 await MessageService.ShowAsync(error.Message);
             }
+        }
+        
+        public async void ListarPedidos()
+        {
+            await NavigationService.NavigateToPedidos();
+        }
+        
+        public async void AdicionarProduto()
+        {
+            await NavigationService.NavigateToAddProduto();
         }
     }
 }

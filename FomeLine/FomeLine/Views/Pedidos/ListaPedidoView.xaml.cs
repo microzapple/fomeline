@@ -1,4 +1,5 @@
-﻿using Xamarin.Forms;
+﻿using FomeLine.ViewModels;
+using Xamarin.Forms;
 
 namespace FomeLine.Views.Pedidos
 {
@@ -7,6 +8,7 @@ namespace FomeLine.Views.Pedidos
         public ListaPedidoView()
         {
             InitializeComponent();
+            BindingContext = new PedidoVm();
         }
     }
 }
