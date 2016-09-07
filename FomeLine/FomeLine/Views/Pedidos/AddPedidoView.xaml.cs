@@ -8,7 +8,7 @@ namespace FomeLine.Views.Pedidos
         public AddPedidoView()
         {
             InitializeComponent();
-            BindingContext = new PedidoVm();
+            //BindingContext = new PedidoVm();
         }
     }
 }

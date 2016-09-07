@@ -2,7 +2,11 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="FomeLine.Views.Account.LoginView">
-
+  <ContentPage.Padding>
+    <OnPlatform x:TypeArguments="Thickness">
+      <OnPlatform.iOS>0, 20, 0, 0</OnPlatform.iOS>
+    </OnPlatform>
+  </ContentPage.Padding>
   <ContentPage.Content>
     <StackLayout Padding="10" Spacing="10">
       <Entry Text="{Binding Email}" Keyboard="Email" Placeholder="email@server.com"></Entry>

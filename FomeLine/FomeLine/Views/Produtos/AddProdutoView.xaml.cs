@@ -8,7 +8,7 @@ namespace FomeLine.Views.Produtos
         public AddProdutoView()
         {
             InitializeComponent();
-            BindingContext = new ProdutoVm();
+            //BindingContext = new ProdutoVm();
         }
     }
 }

@@ -3,5 +3,10 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="FomeLine.Views.Pedidos.ListaPedidoView"
              Title="Pedidos">
+  <ContentPage.Padding>
+    <OnPlatform x:TypeArguments="Thickness">
+      <OnPlatform.iOS>0, 20, 0, 0</OnPlatform.iOS>
+    </OnPlatform>
+  </ContentPage.Padding>
   <Label Text="MEUS PEDIDOS" VerticalOptions="Center" HorizontalOptions="Center" />
 </ContentPage>

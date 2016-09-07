@@ -3,5 +3,10 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="FomeLine.Views.Produtos.ListaProdutosView"
              Title="Produtos">
-  <Label Text="Produtos Disponíveis" VerticalOptions="Center" HorizontalOptions="Center" />
+  <ContentPage.Padding>
+    <OnPlatform x:TypeArguments="Thickness">
+      <OnPlatform.iOS>0, 20, 0, 0</OnPlatform.iOS>
+    </OnPlatform>
+  </ContentPage.Padding>
+  <Label Text="Produtos Disponíveis 0.1" VerticalOptions="Center" HorizontalOptions="Center" />
 </ContentPage>
