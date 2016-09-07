@@ -11,7 +11,7 @@
       <Label Text="Valor"></Label>
       <Entry Text="{Binding Valor}" Placeholder="Ex.: 9.00" ></Entry>
 
-      <Button Text="Registrar" Command="{Binding RegisterCommand}" BackgroundColor="Green" TextColor="White"></Button>
+      <Button Text="Gravar" Command="{Binding GravarCommand}" BackgroundColor="Green" TextColor="White"></Button>
     </StackLayout>
   </ContentPage.Content>
 </ContentPage>

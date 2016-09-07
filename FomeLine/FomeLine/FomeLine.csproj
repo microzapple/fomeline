@@ -47,6 +47,7 @@
     <Compile Include="Services\ProdutoService.cs" />
     <Compile Include="Services\UsuarioService.cs" />
     <Compile Include="ViewModels\BaseVm.cs" />
+    <Compile Include="ViewModels\HomeVm.cs" />
     <Compile Include="ViewModels\Interfaces\IMessageService.cs" />
     <Compile Include="ViewModels\Interfaces\INavigationService.cs" />
     <Compile Include="ViewModels\LoginVm.cs" />
@@ -63,6 +64,21 @@
     </Compile>
     <Compile Include="Services\MessageService .cs" />
     <Compile Include="Services\NavigationService.cs" />
+    <Compile Include="Views\Menu\AddPedidoMenuView.xaml.cs">
+      <DependentUpon>AddPedidoMenuView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Menu\AddProdutoMenuView.xaml.cs">
+      <DependentUpon>AddProdutoMenuView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Menu\ListaPedidosMenuView.xaml.cs">
+      <DependentUpon>ListaPedidosMenuView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Menu\ListaProdutosMenuView.xaml.cs">
+      <DependentUpon>ListaProdutosMenuView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Menu\MasterMenuView.xaml.cs">
+      <DependentUpon>MasterMenuView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Menu\MenuCell.cs" />
     <Compile Include="Views\Menu\MenuItem.cs" />
     <Compile Include="Views\Menu\MenuListData.cs" />
@@ -138,6 +154,36 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Views\Produtos\AddProdutoView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\Menu\MasterMenuView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\Menu\ListaPedidosMenuView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\Menu\AddPedidoMenuView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\Menu\AddProdutoMenuView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\Menu\ListaProdutosMenuView.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>

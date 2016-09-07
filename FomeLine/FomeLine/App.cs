@@ -2,6 +2,7 @@
 using FomeLine.ViewModels.Interfaces;
 using FomeLine.Views;
 using FomeLine.Views.Menu;
+using FomeLine.Views.Produtos;
 using Xamarin.Forms;
 
 namespace FomeLine
@@ -13,7 +14,7 @@ namespace FomeLine
             DependencyService.Register<IMessageService, MessageService>();
             DependencyService.Register<INavigationService, NavigationService>();
 
-            MainPage = new RootPage();
+            MainPage = new AddProdutoMenuView();
         }
 
         protected override void OnStart()

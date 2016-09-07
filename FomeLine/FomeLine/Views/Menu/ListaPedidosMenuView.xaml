@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<MasterDetailPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FomeLine.Views.Menu.ListaPedidosMenuView"
+              xmlns:page="clr-namespace:FomeLine.Views.Pedidos;assembly=FomeLine">
+
+  <MasterDetailPage.Master>
+    <ContentPage Title="MENU">
+      <StackLayout Orientation="Vertical">
+        <Button Text="Início"></Button>
+        <Button Text="Novo Pedido"></Button>
+        <Button Text="Produtos"></Button>
+      </StackLayout>
+    </ContentPage>
+  </MasterDetailPage.Master>
+  <MasterDetailPage.Detail>
+    <page:ListaPedidoView />
+  </MasterDetailPage.Detail>
+</MasterDetailPage>

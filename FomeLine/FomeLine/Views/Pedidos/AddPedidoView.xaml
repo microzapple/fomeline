@@ -2,5 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="FomeLine.Views.Pedidos.AddPedidoView">
-  <Label Text="{Binding MainText}" VerticalOptions="Center" HorizontalOptions="Center" />
+
+  <Label Text="Adicionar PEDIDO" VerticalOptions="Center" HorizontalOptions="Center" />
+
 </ContentPage>
