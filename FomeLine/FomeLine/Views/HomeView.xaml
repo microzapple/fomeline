@@ -1,7 +1,19 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="FomeLine.Views.HomeView">
-  
-  <Label Text="Página Inicial" VerticalOptions="Center" HorizontalOptions="Center" />
-</ContentPage>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            x:Class="FomeLine.Views.HomeView"
+            Title="FomeLine"
+            xmlns:products="clr-namespace:FomeLine.Views.Produtos;assembly=FomeLine"
+            xmlns:orders="clr-namespace:FomeLine.Views.Pedidos;assembly=FomeLine">
+
+  <TabbedPage.Children>
+    <ContentPage Title="Inicio">
+      <ContentPage.Content>
+        <Label Text="Pagina de Inicio"></Label>
+      </ContentPage.Content>
+    </ContentPage>
+
+    <products:ListaProdutosView />
+    <orders:ListaPedidoView />
+  </TabbedPage.Children>
+</TabbedPage>
