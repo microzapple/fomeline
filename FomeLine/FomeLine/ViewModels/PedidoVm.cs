@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows.Input;
+using FomeLine.Services;
 using Xamarin.Forms;
 
 namespace FomeLine.ViewModels
@@ -68,6 +69,8 @@ namespace FomeLine.ViewModels
 
         public async void GoToListarProdutos()
         {
+            var service = new ProdutoService();
+            service.GetAllFromApi();
             await NavigationService.NavigateToProdutos();
         }
 

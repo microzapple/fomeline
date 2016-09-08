@@ -1,6 +1,10 @@
 ﻿using System;
+using System.Net.Http;
+using System.Threading.Tasks;
 using FomeLine.Models;
 using FomeLine.Repository;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 
 namespace FomeLine.Services
 {
@@ -18,32 +22,25 @@ namespace FomeLine.Services
             base.Update(entity);
         }
 
-        /*
-         public async void ExecuteBuscarPaciente(object obj)
+        public async void GetAllFromApi()
         {
             try
             {
-                var client = new RestClient("http://www.sistema.com.br/agendamento_online/");
-                var request = new RestRequest("restapi.php", Method.POST);
-                request.AddParameter("cpf", "107.927.946-64"); //parametro para metodo via POST
-                request.AddParameter("status", "DadosPaciente");
-                IRestResponse<Paciente> response2 = await client.Execute<Paciente>(request);
-                //Pacientes.Add(response2.Data);
-                Pacientes.Add(new Model.Paciente
-                {
-                    CdBairro = response2.Data.CdBairro,
-                    CdCidade = response2.Data.CdCidade,
-                    Cpf = response2.Data.Cpf,
-                    Endereco = response2.Data.Endereco,
-                    Nome = response2.Data.Nome,
-                    NumTelefone = response2.Data.NumTelefone
-                });
+
+
+                var client = new HttpClient();
+                var ddd = client.GetAsync("http://localhost/Pizzaria/api/services/GetUnidadeDeMedidas/7");
+                var ddssd = client.GetStreamAsync("http://localhost/Pizzaria/api/services/GetUnidadeDeMedidas/7");
+                var ssss = ddd.Result;
+                var ssssss = ddd.IsCompleted;
+                var xxx = await client.GetStringAsync("http://localhost/Pizzaria/api/services/GetUnidadeDeMedidas/7");
+                JObject response = JsonConvert.DeserializeObject<dynamic>(xxx);
+                var items = response.Values<JArray>("items");
             }
             catch (System.Exception)
             {
                 throw;
             }
-            
-        } */
+        }
     }
 }

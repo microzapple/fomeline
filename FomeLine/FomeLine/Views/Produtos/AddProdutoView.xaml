@@ -10,7 +10,6 @@
   <ContentPage.Content>
     <StackLayout Orientation="Vertical" VerticalOptions="StartAndExpand" Padding="10" Spacing="10">
       <Image  Source="{Binding ImageSource}" />
-      <!--<Image Source="camera.png" />-->
       <Label Text="Selecionar Image da"></Label>
       <Button Command="{Binding TirarFotoCommand}" Text="Câmera" HorizontalOptions="StartAndExpand"></Button>
       <Button Command="{Binding EscolherFotoCommand}" Text="Galeria" HorizontalOptions="EndAndExpand"></Button>
