@@ -1,10 +1,9 @@
 ﻿using System;
-using System.Net.Http;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using FomeLine.Models;
 using FomeLine.Repository;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
+using Plugin.RestClient;
 
 namespace FomeLine.Services
 {
@@ -22,23 +21,17 @@ namespace FomeLine.Services
             base.Update(entity);
         }
 
-        public async void GetAllFromApi()
+        public async Task<List<Produto>> GetFromApiAsync()
         {
             try
             {
-
-
-                var client = new HttpClient();
-                var ddd = client.GetAsync("http://localhost/Pizzaria/api/services/GetUnidadeDeMedidas/7");
-                var ddssd = client.GetStreamAsync("http://localhost/Pizzaria/api/services/GetUnidadeDeMedidas/7");
-                var ssss = ddd.Result;
-                var ssssss = ddd.IsCompleted;
-                var xxx = await client.GetStringAsync("http://localhost/Pizzaria/api/services/GetUnidadeDeMedidas/7");
-                JObject response = JsonConvert.DeserializeObject<dynamic>(xxx);
-                var items = response.Values<JArray>("items");
+                var api = new RestClient<Produto>();
+                var products = await api.GetProductsAsync();
+                return products;
             }
-            catch (System.Exception)
+            catch (System.Exception error)
             {
+                var sss = error.Message;
                 throw;
             }
         }

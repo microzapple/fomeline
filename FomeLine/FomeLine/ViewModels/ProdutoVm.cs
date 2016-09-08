@@ -1,8 +1,12 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Threading.Tasks;
 using System.Windows.Input;
 using FomeLine.Models;
 using FomeLine.Services;
 using Plugin.Media;
+using Plugin.RestClient;
 using Xamarin.Forms;
 
 namespace FomeLine.ViewModels
@@ -71,6 +75,7 @@ namespace FomeLine.ViewModels
                 Notify(nameof(ImageSource));
             }
         }
+        public ObservableCollection<Produto> ListaProdutos { get; } = new ObservableCollection<Produto>();
 
         public ICommand ListaPedidosCommand { get; set; }
         public ICommand NovoProdutoCommand { get; set; }

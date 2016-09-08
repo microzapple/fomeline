@@ -9,4 +9,17 @@
     </OnPlatform>
   </ContentPage.Padding>
   <Label Text="Produtos Disponíveis 0.1" VerticalOptions="Center" HorizontalOptions="Center" />
+
+  <ListView ItemsSource="{Binding ListaProdutos}" ItemTapped="SelecionarCommand" >
+    <ListView.ItemTemplate>
+      <DataTemplate>
+        <ViewCell>
+          <StackLayout>
+            <Label Text="{Binding Nome}" FontSize="12"></Label>
+            <Label Text="{Binding Valor}" FontSize="10" Opacity="0.6"></Label>
+          </StackLayout>
+        </ViewCell>
+      </DataTemplate>
+    </ListView.ItemTemplate>
+  </ListView>
 </ContentPage>

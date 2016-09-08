@@ -16,6 +16,12 @@ namespace FomeLine.Models
         public string Imagem { get; private set; }
 
         public decimal Valor { get; private set; }
+        
+        public int UnidadeDeMedidaId { get; set; }
+       // public UnidadeDeMedida UnidadeDeMedida { get; set; }
+
+        public int CategoriaId { get; set; }
+        //public Categoria Categoria { get; set; }
 
         public void SetInformation(string nome, string imagem, decimal valor)
         {
