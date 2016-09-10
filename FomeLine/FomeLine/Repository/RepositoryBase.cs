@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using FomeLine.Repository.Interfaces;
 using Xamarin.Forms;
 
@@ -30,7 +32,12 @@ namespace FomeLine.Repository
         {
             Conexao.Update(entity);
         }
-        
+
+        public virtual List<TEntity> GetAll()
+        {
+            return Conexao.Table<TEntity>().ToList();
+        }
+
         public void Dispose()
         {
             Conexao.Dispose();

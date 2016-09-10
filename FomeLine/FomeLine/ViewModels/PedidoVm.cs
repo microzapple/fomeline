@@ -69,8 +69,6 @@ namespace FomeLine.ViewModels
 
         public async void GoToListarProdutos()
         {
-            var service = new ProdutoService();
-            //var ss = await service.GetFromApiAsync();
             await NavigationService.NavigateToProdutos();
         }
 

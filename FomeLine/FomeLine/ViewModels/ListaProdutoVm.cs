@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using FomeLine.Models;
-using Plugin.RestClient;
 
 namespace FomeLine.ViewModels
 {
@@ -25,7 +24,6 @@ namespace FomeLine.ViewModels
 
         public async Task Listar()
         {
-            var api = new RestClient<Produto>();
             var pr = new Produto();
             pr.SetInformation("Pizza M", "icon.png", 12);
 

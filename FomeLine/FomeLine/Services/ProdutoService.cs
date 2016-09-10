@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Net.Http;
 using System.Threading.Tasks;
 using FomeLine.Models;
 using FomeLine.Repository;
-using Plugin.RestClient;
+using FomeLine.RestClient;
 
 namespace FomeLine.Services
 {
@@ -20,20 +21,21 @@ namespace FomeLine.Services
             if (!entity.IsValid()) throw new Exception("Informações Incorretas");
             base.Update(entity);
         }
-
-        public async Task<List<Produto>> GetFromApiAsync()
+        
+        public async Task<List<Produto>> GetAllFromApiAsync()
         {
             try
             {
-                var api = new RestClient<Produto>();
-                var products = await api.GetProductsAsync();
+                var api = new ProdutoRest();
+                var products = await api.GetAllAsync();
                 return products;
             }
-            catch (System.Exception error)
+            catch
             {
-                var sss = error.Message;
-                throw;
+                return null;
             }
         }
+
+
     }
 }

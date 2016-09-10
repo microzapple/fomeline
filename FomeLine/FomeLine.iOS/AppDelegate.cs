@@ -19,7 +19,7 @@ namespace FomeLine.iOS
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
             global::Xamarin.Forms.Forms.Init();
-            LoadApplication(new Appold());
+            LoadApplication(new App());
 
             return base.FinishedLaunching(app, options);
         }

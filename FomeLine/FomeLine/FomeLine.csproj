@@ -49,7 +49,7 @@
     <Compile Include="Repository\ProdutoRepository.cs" />
     <Compile Include="Repository\RepositoryBase.cs" />
     <Compile Include="Repository\UsuarioRepository.cs" />
-    <Compile Include="RestClient\RestClient.cs" />
+    <Compile Include="RestClient\ProdutoRest.cs" />
     <Compile Include="Services\ProdutoService.cs" />
     <Compile Include="Services\UsuarioService.cs" />
     <Compile Include="ViewModels\BaseVm.cs" />
