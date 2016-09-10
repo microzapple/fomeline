@@ -79,13 +79,14 @@ namespace FomeLine.ViewModels
         public ICommand TirarFotoCommand { get; set; }
         public ICommand EscolherFotoCommand { get; set; }
         public ICommand GravarCommand { get; set; }
+
         public ProdutoVm()
         {
             _imageSource = DefaultImage;
             ListaPedidosCommand = new Command(GoToListarPedidos);
             NovoProdutoCommand = new Command(GoToNovoProduto);
-            EscolherFotoCommand = new Command(EscolherFoto);
             TirarFotoCommand = new Command(TirarFoto);
+            EscolherFotoCommand = new Command(EscolherFoto);
             GravarCommand = new Command(Gravar);
         }
 
@@ -93,6 +94,8 @@ namespace FomeLine.ViewModels
         {
             try
             {
+                var imag = ImageSource;
+
                 var product = new Produto();
                 product.SetInformation(Nome, Imagem, Valor);
 
@@ -128,7 +131,7 @@ namespace FomeLine.ViewModels
 
             if (file == null) return;
 
-            _imageSource = ImageSource.FromStream(() =>
+            ImageSource = ImageSource.FromStream(() =>
             {
                 var stream = file.GetStream();
                 file.Dispose();
@@ -146,15 +149,15 @@ namespace FomeLine.ViewModels
 
             var file = await CrossMedia.Current.TakePhotoAsync(new Plugin.Media.Abstractions.StoreCameraMediaOptions
             {
-                Directory = "Sample",
-                Name = "test.jpg"
+                Directory = "FomeLine",
+                Name = string.Format("FomeLine{0}.jpg", DateTime.Now)
             });
 
             if (file == null) return;
 
             await MessageService.ShowAsync("Localização do arquivo", file.Path);
 
-            _imageSource = ImageSource.FromStream(() =>
+            ImageSource = ImageSource.FromStream(() =>
             {
                 var stream = file.GetStream();
                 file.Dispose();

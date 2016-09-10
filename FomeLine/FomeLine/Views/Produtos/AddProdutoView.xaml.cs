@@ -1,5 +1,4 @@
-﻿using FomeLine.ViewModels;
-using Xamarin.Forms;
+﻿using Xamarin.Forms;
 
 namespace FomeLine.Views.Produtos
 {
@@ -8,7 +7,6 @@ namespace FomeLine.Views.Produtos
         public AddProdutoView()
         {
             InitializeComponent();
-            //BindingContext = new ProdutoVm();
         }
     }
 }

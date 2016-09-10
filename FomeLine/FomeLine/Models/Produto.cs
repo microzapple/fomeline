@@ -32,8 +32,8 @@ namespace FomeLine.Models
 
         public bool IsValid()
         {
+            if (string.IsNullOrEmpty(Imagem)) throw new Exception("Imagem Obrigatória");
             if (string.IsNullOrEmpty(Nome)) throw new Exception("Nome Obrigatório");
-            if (string.IsNullOrEmpty(Imagem)) throw new Exception("Imagem Obrigatório");
             if (Valor == 0) throw new Exception("Valor Obrigatório");
             return true;
         }

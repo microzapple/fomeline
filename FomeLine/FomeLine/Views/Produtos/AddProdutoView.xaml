@@ -1,7 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:style="clr-namespace:FomeLine;assembly=FomeLine"
              x:Class="FomeLine.Views.Produtos.AddProdutoView">
   <ContentPage.Padding>
     <OnPlatform x:TypeArguments="Thickness">
@@ -10,13 +9,13 @@
   </ContentPage.Padding>
   <ContentPage.Content>
     <StackLayout Orientation="Vertical" VerticalOptions="Center" Padding="10" Spacing="10">
-      <Image  Source="{Binding ImageSource}" WidthRequest="100" HeightRequest="100" />
+      <Image Source="{Binding ImageSource}" />
       <Label Text="Selecionar Imagem da" FontSize="18"></Label>
       <StackLayout Orientation="Horizontal">
         <Button Command="{Binding TirarFotoCommand}" Text="Câmera" HorizontalOptions="StartAndExpand"></Button>
         <Button Command="{Binding EscolherFotoCommand}" Text="Galeria" HorizontalOptions="EndAndExpand"></Button>
       </StackLayout>
-        
+
       <Label Text="Nome"></Label>
       <Entry Text="{Binding Nome}" Placeholder="Ex.: Pizza M" StyleId="NormalEntry"></Entry>
 
