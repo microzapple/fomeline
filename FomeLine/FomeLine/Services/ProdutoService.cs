@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
+using FomeLine.Helpers;
 using FomeLine.Models;
 using FomeLine.Repository;
 using FomeLine.RestClient;
@@ -21,7 +23,7 @@ namespace FomeLine.Services
             if (!entity.IsValid()) throw new Exception("Informações Incorretas");
             base.Update(entity);
         }
-        
+
         public async Task<List<Produto>> GetAllFromApiAsync()
         {
             try
@@ -36,6 +38,19 @@ namespace FomeLine.Services
             }
         }
 
+        public IEnumerable<Group<string, Produto>> Group(List<Produto> list, string search = "")
+        {
+            if (!string.IsNullOrEmpty(search))
+                list = list.Where(x => x.Nome.ToLower().Contains(search.ToLower())).ToList();
+
+            var result = from prod in list
+                         orderby prod.Nome
+                         group prod by prod.Nome into grupos
+                         select new Group<string, Produto>(grupos.Key, grupos);
+
+            var enumerable = result as Group<string, Produto>[] ?? result.ToArray();
+            return enumerable;
+        }
 
     }
 }

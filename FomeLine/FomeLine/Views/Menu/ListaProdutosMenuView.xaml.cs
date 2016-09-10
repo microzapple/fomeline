@@ -8,7 +8,10 @@ namespace FomeLine.Views.Menu
         public ListaProdutosMenuView()
         {
             InitializeComponent();
-            BindingContext = new ProdutoVm();
+
+            var productVm = new ProdutoVm();
+            
+            BindingContext = productVm;
         }
     }
 }

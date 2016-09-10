@@ -1,42 +1,32 @@
 ﻿using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Threading.Tasks;
 using FomeLine.Models;
+using FomeLine.Services;
 
 namespace FomeLine.ViewModels
 {
-    public class ListaProdutoVm : BaseVm
+    public class ListaProdutoVm : Produto
     {
-        private List<Produto> _listaProdutos;
-        public List<Produto> ListaProdutos
+        private ObservableCollection<Produto> _listaEntities;
+
+        public ObservableCollection<Produto> Lista
         {
-            get { return _listaProdutos; }
-            set
+            get
             {
-                _listaProdutos = value;
-                Notify(nameof(ListaProdutos));
+                if (_listaEntities == null) Listar();
+                return _listaEntities;
             }
+            set { _listaEntities = value; }
         }
 
-        public ListaProdutoVm()
+        public void Listar()
         {
-            Listar();
-        }
-
-        public async Task Listar()
-        {
-            var pr = new Produto();
-            pr.SetInformation("Pizza M", "icon.png", 12);
-
-            ListaProdutos = new List<Produto>
+            using (var context = new ProdutoService())
             {
-                pr,
-                pr,
-                pr,
-                pr,
-                pr,
-                pr
-            };
-            //ListaProdutos = await api.GetProductsAsync();
+                var list = new ObservableCollection<Produto>(context.GetAll());
+                _listaEntities = list;
+            }
         }
     }
 }

@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.ObjectModel;
 using System.Windows.Input;
 using FomeLine.Models;
 using FomeLine.Services;
@@ -72,7 +71,7 @@ namespace FomeLine.ViewModels
                 Notify(nameof(ImageSource));
             }
         }
-        public ObservableCollection<Produto> ListaProdutos { get; } = new ObservableCollection<Produto>();
+        //public ObservableCollection<Produto> ListaProdutos { get; } = new ObservableCollection<Produto>();
 
         public ICommand ListaPedidosCommand { get; set; }
         public ICommand NovoProdutoCommand { get; set; }
@@ -94,8 +93,6 @@ namespace FomeLine.ViewModels
         {
             try
             {
-                var imag = ImageSource;
-
                 var product = new Produto();
                 product.SetInformation(Nome, Imagem, Valor);
 
@@ -119,7 +116,7 @@ namespace FomeLine.ViewModels
         {
             await NavigationService.NavigateToAddProduto();
         }
-
+        
         public async void EscolherFoto()
         {
             if (!CrossMedia.Current.IsPickPhotoSupported)
@@ -131,6 +128,7 @@ namespace FomeLine.ViewModels
 
             if (file == null) return;
 
+            Imagem = file.Path;
             ImageSource = ImageSource.FromStream(() =>
             {
                 var stream = file.GetStream();

@@ -6,7 +6,10 @@ namespace FomeLine.Models
 {
     public class Produto
     {
-        public Produto() { }
+        public Produto()
+        {
+            Imagem = "icon.png";
+        }
 
         [PrimaryKey, AutoIncrement]
         public int ProdutoId { get; set; }

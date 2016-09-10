@@ -1,10 +1,7 @@
 ﻿using System.Threading.Tasks;
 using FomeLine.ViewModels.Interfaces;
-using FomeLine.Views;
 using FomeLine.Views.Account;
 using FomeLine.Views.Menu;
-using FomeLine.Views.Pedidos;
-using FomeLine.Views.Produtos;
 using Xamarin.Forms;
 
 namespace FomeLine.Services

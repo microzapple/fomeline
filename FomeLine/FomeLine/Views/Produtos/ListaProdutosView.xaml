@@ -8,18 +8,16 @@
       <OnPlatform.iOS>0, 20, 0, 0</OnPlatform.iOS>
     </OnPlatform>
   </ContentPage.Padding>
-  <Label Text="Produtos Disponíveis 0.1" VerticalOptions="Center" HorizontalOptions="Center" />
+  <StackLayout>
+    <Label Text="Produtos Disponíveis" VerticalOptions="Center" HorizontalOptions="Center" />
 
-  <ListView ItemsSource="{Binding ListaProdutos}" ItemTapped="SelecionarCommand" >
-    <ListView.ItemTemplate>
-      <DataTemplate>
-        <ViewCell>
-          <StackLayout>
-            <Label Text="{Binding Nome}" FontSize="12"></Label>
-            <Label Text="{Binding Valor}" FontSize="10" Opacity="0.6"></Label>
-          </StackLayout>
-        </ViewCell>
-      </DataTemplate>
-    </ListView.ItemTemplate>
-  </ListView>
+    <SearchBar x:Name="busca" Placeholder="Buscar..."></SearchBar>
+    <ListView x:Name="lista" IsGroupingEnabled="True" GroupDisplayBinding="{Binding Key}">
+      <ListView.ItemTemplate> 
+        <DataTemplate>
+          <TextCell Text="{Binding Nome}" Detail="{Binding Valor}" TextColor="White"></TextCell>
+        </DataTemplate>
+      </ListView.ItemTemplate>
+    </ListView>
+  </StackLayout>
 </ContentPage>
