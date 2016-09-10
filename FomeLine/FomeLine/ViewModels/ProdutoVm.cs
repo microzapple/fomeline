@@ -71,7 +71,6 @@ namespace FomeLine.ViewModels
                 Notify(nameof(ImageSource));
             }
         }
-        //public ObservableCollection<Produto> ListaProdutos { get; } = new ObservableCollection<Produto>();
 
         public ICommand ListaPedidosCommand { get; set; }
         public ICommand NovoProdutoCommand { get; set; }
@@ -99,7 +98,7 @@ namespace FomeLine.ViewModels
                 var service = new ProdutoService();
                 service.Insert(product);
 
-                await MessageService.ShowAsync("Produto gravado com sucesso!");
+                await NavigationService.NavigateToProdutos();
             }
             catch (Exception error)
             {

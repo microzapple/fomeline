@@ -9,8 +9,6 @@
     </OnPlatform>
   </ContentPage.Padding>
   <StackLayout>
-    <Label Text="Produtos Disponíveis" VerticalOptions="Center" HorizontalOptions="Center" />
-
     <SearchBar x:Name="busca" Placeholder="Buscar..."></SearchBar>
     <ListView x:Name="lista" IsGroupingEnabled="True" GroupDisplayBinding="{Binding Key}">
       <ListView.ItemTemplate> 
