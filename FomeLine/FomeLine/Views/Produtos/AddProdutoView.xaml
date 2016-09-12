@@ -7,6 +7,9 @@
       <OnPlatform.iOS>0, 20, 0, 0</OnPlatform.iOS>
     </OnPlatform>
   </ContentPage.Padding>
+  <ContentPage.ToolbarItems>
+    <ToolbarItem Text="Gravar" Command="{Binding GravarCommand}"></ToolbarItem>
+  </ContentPage.ToolbarItems>
   <ContentPage.Content>
     <StackLayout Orientation="Vertical" VerticalOptions="Center" Padding="10" Spacing="10">
       <Image Source="{Binding ImageSource}" />
@@ -22,7 +25,7 @@
       <Label Text="Valor"></Label>
       <Entry Text="{Binding Valor}" Placeholder="Ex.: 9.00" FontSize="16"></Entry>
 
-      <Button Text="Gravar" Command="{Binding GravarCommand}" BackgroundColor="Green" TextColor="White"></Button>
+      <!--<Button Text="Gravar" Command="{Binding GravarCommand}" BackgroundColor="Green" TextColor="White"></Button>-->
     </StackLayout>
   </ContentPage.Content>
 </ContentPage>

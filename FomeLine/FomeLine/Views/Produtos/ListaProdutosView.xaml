@@ -11,9 +11,11 @@
   <StackLayout>
     <SearchBar x:Name="busca" Placeholder="Buscar..."></SearchBar>
     <ListView x:Name="lista" IsGroupingEnabled="True" GroupDisplayBinding="{Binding Key}">
-      <ListView.ItemTemplate> 
+      <ListView.ItemTemplate>
         <DataTemplate>
-          <TextCell Text="{Binding Nome}" Detail="{Binding Valor}" TextColor="White"></TextCell>
+          <ImageCell TextColor="White" ImageSource="{Binding Imagem}" Text="{Binding Nome}" Detail="{Binding Valor}">
+            <ImageCell.Command></ImageCell.Command>
+          </ImageCell>
         </DataTemplate>
       </ListView.ItemTemplate>
     </ListView>

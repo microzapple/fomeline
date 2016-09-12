@@ -72,8 +72,20 @@ namespace FomeLine.ViewModels
             }
         }
 
+        private string _nomeEhValor;
+        public string NomeEhValor
+        {
+            get { return _nomeEhValor; }
+            set
+            {
+                _nomeEhValor = string.Format("{0} - {1}", Nome, Valor);
+                Notify(nameof(NomeEhValor));
+            }
+        }
+
         public ICommand ListaPedidosCommand { get; set; }
         public ICommand NovoProdutoCommand { get; set; }
+        public ICommand SelecionarCommand { get; set; }
         public ICommand TirarFotoCommand { get; set; }
         public ICommand EscolherFotoCommand { get; set; }
         public ICommand GravarCommand { get; set; }
@@ -83,6 +95,7 @@ namespace FomeLine.ViewModels
             _imageSource = DefaultImage;
             ListaPedidosCommand = new Command(GoToListarPedidos);
             NovoProdutoCommand = new Command(GoToNovoProduto);
+            SelecionarCommand = new Command(Selecionar);
             TirarFotoCommand = new Command(TirarFoto);
             EscolherFotoCommand = new Command(EscolherFoto);
             GravarCommand = new Command(Gravar);
@@ -106,6 +119,11 @@ namespace FomeLine.ViewModels
             }
         }
 
+        public async void Selecionar()
+        {
+            
+        }
+
         public async void GoToListarPedidos()
         {
             await NavigationService.NavigateToPedidos();
@@ -115,7 +133,7 @@ namespace FomeLine.ViewModels
         {
             await NavigationService.NavigateToAddProduto();
         }
-        
+
         public async void EscolherFoto()
         {
             if (!CrossMedia.Current.IsPickPhotoSupported)
