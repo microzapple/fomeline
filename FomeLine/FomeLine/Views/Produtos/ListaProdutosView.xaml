@@ -10,11 +10,11 @@
   </ContentPage.Padding>
   <StackLayout>
     <SearchBar x:Name="busca" Placeholder="Buscar..."></SearchBar>
-    <ListView x:Name="lista" IsGroupingEnabled="True" GroupDisplayBinding="{Binding Key}">
+    <ListView x:Name="lista" IsGroupingEnabled="True" GroupDisplayBinding="{Binding Key}" ItemTapped="ListaOnItemTapped">
       <ListView.ItemTemplate>
         <DataTemplate>
-          <ImageCell TextColor="White" ImageSource="{Binding Imagem}" Text="{Binding Nome}" Detail="{Binding Valor}">
-            <ImageCell.Command></ImageCell.Command>
+          <ImageCell TextColor="White" ImageSource="{Binding Imagem}" Text="{Binding Nome}" Detail="{Binding Valor}" CommandParameter="{Binding .}">
+            
           </ImageCell>
         </DataTemplate>
       </ListView.ItemTemplate>

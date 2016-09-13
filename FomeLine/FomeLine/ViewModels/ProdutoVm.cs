@@ -121,7 +121,7 @@ namespace FomeLine.ViewModels
 
         public async void Selecionar()
         {
-            
+            await MessageService.ShowAsync("Clicou");
         }
 
         public async void GoToListarPedidos()

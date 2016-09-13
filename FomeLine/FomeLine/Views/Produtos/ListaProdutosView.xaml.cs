@@ -28,7 +28,7 @@ namespace FomeLine.Views.Produtos
         {
             lista.ItemsSource = Group(busca.Text);
         }
-
+        
         public IEnumerable<Group<string, Produto>> Group(string search = "")
         {
             try
@@ -41,11 +41,11 @@ namespace FomeLine.Views.Produtos
                 return null;
             }
         }
-
-        private void SelecionarCommand(object sender, ItemTappedEventArgs e)
+        
+        private void ListaOnItemTapped(object sender, ItemTappedEventArgs e)
         {
             var per = e.Item as Produto;
-            MessageService.ShowAsync("Selecionado", per.Nome);
+            MessageService.ShowAsync(per.NomeEhValor,"Deseja realizar o pedido deste produto?");
         }
     }
 }

@@ -26,6 +26,7 @@ namespace FomeLine.Models
         public int CategoriaId { get; set; }
         //public Categoria Categoria { get; set; }
 
+        public string NomeEhValor { get { return string.Format("{0} - {1}", Nome, Valor.ToString("C")); } }
         public void SetInformation(string nome, string imagem, decimal valor)
         {
             Nome = nome;
