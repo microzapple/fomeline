@@ -15,5 +15,15 @@ namespace FomeLine.Services
         {
             await Application.Current.MainPage.DisplayAlert(title, message, "OK");
         }
+
+        public async Task<bool> ShowConfirmationAsync(string title, string message, string accept, string cancel)
+        {
+            return await Application.Current.MainPage.DisplayAlert(title, message, accept, cancel);
+        }
+
+        public async Task<bool> ShowConfirmationAsync(string title, string message)
+        {
+            return await Application.Current.MainPage.DisplayAlert(title, message, "SIM", "NÃO");
+        }
     }
 }

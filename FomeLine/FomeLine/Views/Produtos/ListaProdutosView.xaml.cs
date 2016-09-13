@@ -42,10 +42,14 @@ namespace FomeLine.Views.Produtos
             }
         }
         
-        private void ListaOnItemTapped(object sender, ItemTappedEventArgs e)
+        private async void ListaOnItemTapped(object sender, ItemTappedEventArgs e)
         {
             var per = e.Item as Produto;
-            MessageService.ShowAsync(per.NomeEhValor,"Deseja realizar o pedido deste produto?");
+           var confirm = await MessageService.ShowConfirmationAsync(per.NomeEhValor,"Deseja realizar o pedido deste produto?");
+            if (confirm)
+            {
+                await MessageService.ShowAsync("Produto indisponível em estoque");
+            }
         }
     }
 }
