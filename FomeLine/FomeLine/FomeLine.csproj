@@ -39,6 +39,7 @@
     <Compile Include="Helpers\EmailHelper.cs" />
     <Compile Include="Helpers\Group.cs" />
     <Compile Include="Models\Categoria.cs" />
+    <Compile Include="Models\GoogleProfile.cs" />
     <Compile Include="Models\ItemDoPedido.cs" />
     <Compile Include="Models\Pedido.cs" />
     <Compile Include="Models\Produto.cs" />
@@ -50,9 +51,11 @@
     <Compile Include="Repository\RepositoryBase.cs" />
     <Compile Include="Repository\UsuarioRepository.cs" />
     <Compile Include="RestClient\ProdutoRest.cs" />
+    <Compile Include="Services\GoogleServices.cs" />
     <Compile Include="Services\ProdutoService.cs" />
     <Compile Include="Services\UsuarioService.cs" />
     <Compile Include="ViewModels\BaseVm.cs" />
+    <Compile Include="ViewModels\GoogleVm.cs" />
     <Compile Include="ViewModels\HomeVm.cs" />
     <Compile Include="ViewModels\Interfaces\IMessageService.cs" />
     <Compile Include="ViewModels\Interfaces\INavigationService.cs" />
@@ -68,11 +71,13 @@
     <Compile Include="Views\Account\RegisterView.xaml.cs">
       <DependentUpon>RegisterView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\GoogleProfileCsPage.cs" />
     <Compile Include="Views\HomeView.xaml.cs">
       <DependentUpon>HomeView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Services\MessageService .cs" />
     <Compile Include="Services\NavigationService.cs" />
+    <Compile Include="Views\MainCsPage.cs" />
     <Compile Include="Views\Menu\AddPedidoMenuView.xaml.cs">
       <DependentUpon>AddPedidoMenuView.xaml</DependentUpon>
     </Compile>

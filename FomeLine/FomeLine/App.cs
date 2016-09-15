@@ -1,8 +1,10 @@
 ﻿using FomeLine.Services;
 using FomeLine.ViewModels.Interfaces;
 using FomeLine.Views;
+using FomeLine.Views.Account;
 using FomeLine.Views.Menu;
 using FomeLine.Views.Produtos;
+using GoogleLogin.Views;
 using Xamarin.Forms;
 
 namespace FomeLine
@@ -14,7 +16,7 @@ namespace FomeLine
             DependencyService.Register<IMessageService, MessageService>();
             DependencyService.Register<INavigationService, NavigationService>();
 
-            MainPage = new MasterMenuView();
+            MainPage = new NavigationPage(new MainCsPage());
         }
 
         protected override void OnStart()
